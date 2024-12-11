@@ -49,7 +49,6 @@ RUN npm ci
 # Add source code and configuration
 ADD ./src ./src
 ADD ./types ./types
-ADD ./tsconfig.json ./tsconfig.json
 
 # Copy entrypoint script and make it executable
 COPY ./accs.sh /accs.sh
