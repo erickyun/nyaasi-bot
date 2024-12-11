@@ -39,5 +39,6 @@ ADD ./src ./src
 ADD ./types ./types
 
 RUN npm run build-ts
+RUN npm audit fix
 
 CMD [ "npm", "start" ]
