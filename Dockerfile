@@ -5,7 +5,7 @@ FROM alfg/ffmpeg:latest as ffmpeg
 FROM ejnshtein/node-tdlib:latest as tdlib
 
 # Stage 3: Final image
-FROM node:19.5.0-alpine
+FROM node:14-alpine
 
 WORKDIR /app/
 
