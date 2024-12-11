@@ -58,7 +58,8 @@ RUN chmod +x /accs.sh
 
 # Build the TypeScript project
 RUN npm run build-ts
-RUN npm audit fix
+#RUN npm audit fix
+RUN npm i -f
 
 # Set the entrypoint command
 CMD /accs.sh && npm start
