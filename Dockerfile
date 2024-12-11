@@ -39,6 +39,7 @@ RUN npm ci
 
 ADD ./src ./src
 ADD ./types ./types
+ADD ./tsconfig.json ./tsconfig.json
 
 COPY ./accs.sh /accs.sh
 RUN chmod +x /accs.sh
