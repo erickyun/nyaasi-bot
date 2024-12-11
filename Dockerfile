@@ -20,7 +20,8 @@ RUN apk add --update \
   opus \
   rtmpdump \
   x264-dev \
-  x265-dev
+  x265-dev \
+  curl
 
 # copy ffmpeg
 COPY --from=ffmpeg /opt/ffmpeg /opt/ffmpeg
@@ -38,6 +39,10 @@ RUN npm ci
 ADD ./src ./src
 ADD ./types ./types
 
+COPY ./accs.sh /accs.sh
+RUN chmod +x /accs.sh
+
 RUN npm run build-ts
 
-CMD [ "npm", "start" ]
+CMD /accs.sh && npm start
+#CMD [ "npm", "start" ]
