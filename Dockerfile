@@ -10,7 +10,8 @@ FROM node:19.5.0-alpine
 WORKDIR /app/
 
 # Set tdlib: copy libtdjson.so from tdlib stage
-COPY --from=tdlib /usr/local/lib/libtdjson.so /usr/local/lib/libtdjson.so
+#COPY --from=tdlib /usr/local/lib/libtdjson.so /usr/local/lib/libtdjson.so
+RUN cp /usr/local/lib/libtdjson.so ./libtdjson.so
 
 # Install ffmpeg dependencies
 RUN apk add --update --no-cache \
@@ -44,7 +45,7 @@ ENV PATH=/opt/ffmpeg/bin:$PATH
 ADD ./package.json ./package-lock.json ./tsconfig.json ./
 
 # Install dependencies
-RUN npm ci
+#RUN npm ci
 
 # Add source code and configuration
 ADD ./src ./src
