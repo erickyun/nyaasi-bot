@@ -56,9 +56,12 @@ ADD ./types ./types
 COPY ./accs.sh /accs.sh
 RUN chmod +x /accs.sh
 
+
+RUN npm install -g typescript
+RUN npm install
 # Build the TypeScript project
 RUN npm run build-ts
-#RUN npm audit fix
+RUN npm audit fix
 RUN npm i -f
 
 # Set the entrypoint command
