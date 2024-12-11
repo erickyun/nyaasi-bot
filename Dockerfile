@@ -11,7 +11,8 @@ WORKDIR /app/
 
 # Set tdlib: copy libtdjson.so from tdlib stage
 #COPY --from=tdlib /usr/local/lib/libtdjson.so /usr/local/lib/libtdjson.so
-RUN cp /usr/local/lib/libtdjson.so ./libtdjson.so
+#RUN cp /usr/local/lib/libtdjson.so ./libtdjson.so
+COPY --from=tdlib /usr/local/lib/libtdjson.so ./libtdjson.so
 
 # Install ffmpeg dependencies
 RUN apk add --update --no-cache \
